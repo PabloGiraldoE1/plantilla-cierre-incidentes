@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Plantilla Cierre de Incidentes v1.0 web</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="plantilla-cierre.css">
+</head>
+
+<body>
+  <h1>PLANTILLA CIERRE DE INCIDENTES</h1>
+
+  <div class="contenedor">
+    <!-- FORMULARIO -->
+    <form id="formulario" autocomplete="off">
+      <fieldset>
+        <legend>Procesos de Aplicativo</legend>
+        <div class="campo" style="flex: 1;">
+          <label for="aplicativo_afectado">Aplicativo Afectado <span class="campo-obligatorio">*</span>:</label>
+          <select id="aplicativo_afectado">
+            <option value="">-- Seleccione --</option>
+            <option value="Cotizador Salud">Cotizador Salud</option>
+            <option value="Cotizador Autos">Cotizador Autos</option>
+            <option value="Cotizador PCP">Cotizador PCP</option>
+            <option value="Cotizador Accidente Personal">Cotizador Accidente Personal</option>
+            <option value="ICargo">ICargo</option>
+            <option value="Cotizador GWT">Cotizador GWT</option>
+            <option value="Home Cotizador">Home Cotizador</option>
+            <option value="Mis Negocios">Mis Negocios</option>
+            <option value="Cotizador Educacion">Cotizador Educacion</option>
+            <option value="Cotizador Pension">Cotizador Pension</option>
+            <option value="Cotizador Mas Vida">Cotizador Mas Vida</option>
+            <option value="Cotizador Ingreso Digital Vida Grupo">Cotizador Ingreso Digital Vida Grupo</option>
+            <option value="Cotizador Saldado">Cotizador Saldado</option>
+            <option value="Cotizador Vida Grupo PES">Cotizador Vida Grupo PES</option>
+            <option value="PorChat">PorChat</option>
+            <option value="AVA">AVA</option>
+            <option value="AUS">AUS</option>
+            <option value="SimonNet / Gestion Documental">SimonNet</option>
+            <option value="Alertamiento">Alertamiento</option>
+          </select>
+        </div>
+        <div class="campo" style="flex: 1;">
+          <label for="proceso_aplicativo">Proceso:</label>
+          <select id="proceso_aplicativo">
+            <option value="">-- Seleccione --</option>
+            <option value="Nuevo">Nuevo</option>
+            <option value="Cotizar">Cotizar</option>
+            <option value="Expedir">Expedir</option>
+            <option value="Modificar">Modificacion</option>
+            <option value="Renovar">Renovacion</option>
+            <option value="Documentos">Documentos</option>
+            <option value="Requisitos">Requisitos</option>
+            <option value="Gestion">Gestion</option>
+            <option value="Alertamiento">Alertamiento</option>
+          </select>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Información de Incidente</legend>
+        <div class="campo">
+          <label for="agrupador_error">Agrupador del Error <span class="campo-obligatorio">*</span>:</label>
+          <div style="display:flex;align-items:center;flex:1;gap:6px;min-width:0;max-width:100%;">
+            <input type="text" id="agrupador_error" autocomplete="off" placeholder="Escribe para buscar..." style="width:100%;min-width:0;max-width:100%;box-sizing:border-box;">
+            <button type="button" id="ver_agrupadores" class="btn-mini" title="Ver agrupadores">🔍</button>
+          </div>
+          <div id="autocomplete" class="autocomplete-list"></div>
+        </div>
+
+        <div class="campo">
+          <label for="causa_error">Causa del Error:</label>
+          <select id="causa_error" required>
+            <option value="">-- Seleccione --</option>
+            <option value="1. Capacitación - Tiene la opción pero no sabe cómo hacerlo">1. Capacitación - Tiene la opción
+              pero no sabe cómo hacerlo</option>
+            <option value="2. Capacitación - Desconoce el proceso de Negocio">2. Capacitación - Desconoce el proceso de
+              Negocio</option>
+            <option value="3. Capacitación - Desconoce el uso del aplicativo">3. Capacitación - Desconoce el uso del
+              aplicativo</option>
+            <option value="4. Mejoras - Redefinición de Políticas y/o Procesos de negocio">4. Mejoras - Redefinición de
+              Políticas y/o Procesos de negocio</option>
+            <option
+              value="5. Mejoras - Se requiere una nueva funcionalidad (El negocio no tiene como ejecutar la operación)">5.
+              Mejoras - Se requiere una nueva funcionalidad (El negocio no tiene como ejecutar la operación)</option>
+            <option value="6. Errores de la aplicación">6. Errores de la aplicación</option>
+            <option value="7. Perfilacion / Accesos - El usuario no cuenta con los permisos">7. Perfilacion / Accesos - El
+              usuario no cuenta con los permisos</option>
+            <option value="8. Degradación de Servicios">8. Degradación de Servicios</option>
+            <option value="9. Datos errados">9. Datos errados</option>
+            <option value="10. Solucionado sin acciones - Fue un error Momentaneo">10. Solucionado sin acciones - Fue un
+              error Momentaneo</option>
+            <option value="11. Modificacion Dato - Se modifica un Valor el cual era incorrecto">11. Modificacion Dato - Se
+              modifica un Valor el cual era incorrecto</option>
+            <option value="12. Modificacion De Codigo - Se Modifica Algo del codigo">12. Modificacion De Codigo - Se
+              Modifica Algo del codigo</option>
+            <option value="13. Usuario desincronizado">13. Usuario desincronizado</option>
+            <option value="14. No detectada (Usuario ya no tiene póliza para confirmar)">14. No detectada (Usuario ya no
+              tiene póliza para confirmar)</option>
+            <option value="15. Error masivo en salud">15. Error masivo en salud</option>
+            <option value="16. Actualización APP">16. Actualización APP</option>
+            <option value="17. Intermitencia servicio externo">17. Intermitencia servicio externo</option>
+            <option value="18. Error de autenticación SEUS - salud">18. Error de autenticación SEUS - salud</option>
+            <option value="19. Error del dispositivo">19. Error del dispositivo</option>
+            <option value="20. Problema externo a la aplicación">20. Problema externo a la aplicación</option>
+            <option value="21. No detectada (Solucion por parte del usuario)">21. No detectada (Solucion por parte del
+              usuario)</option>
+            <option value="22. Cruce de ambientes">22. Cruce de ambientes</option>
+            <option value="23. El cotizador no cargó las resouestas de las preguntas de Declaración Asegurabilidad">23. El
+              cotizador no cargó las resouestas de las preguntas de Declaración Asegurabilidad</option>
+            <option value="24. Incidente repetido">24. Incidente repetido</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="proceso_error">Proceso del Error:</label>
+          <select id="proceso_error" required>
+            <option value="">-- Seleccione --</option>
+            <option value="1. Expedicion">1. Expedicion</option>
+            <option value="3. Reclamacion">3. Reclamacion</option>
+            <option value="4. Cotizacion">4. Cotizacion</option>
+            <option value="5. Modificacion">5. Modificacion</option>
+            <option value="6. Reaseguro">6. Reaseguro</option>
+            <option value="7. Impresión">7. Impresión</option>
+            <option value="9. Asesoria y Venta">9. Asesoria y Venta</option>
+            <option value="11. Cancelaciones">11. Cancelaciones</option>
+            <option value="12. Configuracion de Producto">12. Configuracion de Producto</option>
+            <option value="13. Emision de Recibos">13. Emision de Recibos</option>
+            <option value="14. Recaudo">14. Recaudo</option>
+            <option value="15. Cambios de Comisiones">15. Cambios de Comisiones</option>
+            <option value="16. Cambios de Deducible">16. Cambios de Deducible</option>
+            <option value="17. Estrategias Comerciales">17. Estrategias Comerciales</option>
+            <option value="18. Anulacion de Recibos">18. Anulacion de Recibos</option>
+            <option value="19. Cobros">19. Cobros</option>
+            <option value="20. Recibo manual">20. Recibo manual</option>
+            <option value="21. Sacar de bolsa">21. Sacar de bolsa</option>
+            <option value="22. Pago siniestros">22. Pago siniestros</option>
+            <option value="23. P8 (Documentos)">23. P8 (Documentos)</option>
+            <option value="24. ATR">24. ATR</option>
+            <option value="25. Case Tracking (Procesos Judiciales)">25. Case Tracking (Procesos Judiciales)</option>
+            <option value="26. Gestion de la informacion de cliente">26. Gestion de la informacion de cliente</option>
+            <option value="27. Consultar información">27. Consultar información</option>
+            <option value="28. Reserva sinietros">28. Reserva sinietros</option>
+            <option value="29. Recupero siniestros">29. Recupero siniestros</option>
+            <option value="30. Desplazamiento">30. Desplazamiento</option>
+            <option value="31. Login Suramasivos">31. Login Suramasivos</option>
+            <option value="32. Datos de movilidad no disponibles">32. Datos de movilidad no disponibles</option>
+            <option value="33. Asociado a un incidente mayor">33. Asociado a un incidente mayor</option>
+            <option value="34. Login">34. Login</option>
+            <option value="35. Solicitud hogar">35. Solicitud hogar</option>
+            <option value="36. Sincronización">36. Sincronización</option>
+            <option value="37. Creación de cita">37. Creación de cita</option>
+            <option value="38. Conductor Elegido">38. Conductor Elegido</option>
+            <option value="39. Cierre de sesión">39. Cierre de sesión</option>
+            <option value="40. Inspeccion virtual">40. Inspeccion virtual</option>
+            <option value="41. Reembolso">41. Reembolso</option>
+            <option value="42. Bolsillo">42. Bolsillo</option>
+            <option value="43. Firma remota">43. Firma remota</option>
+            <option value="44. Sarlaft">44. Sarlaft</option>
+            <option value="45. Fatca">45. Fatca</option>
+            <option value="47. Información de Cliente">47. Información de Cliente</option>
+            <option value="48. Información de riesgo/negocio">48. Información de riesgo/negocio</option>
+            <option value="49. Tarifación">49. Tarifación</option>
+            <option value="50. Solicitud electrónica">50. Solicitud electrónica</option>
+            <option value="51. Plan de Recompensa">51. Plan de Recompensa</option>
+            <option value="52. Reporte Monitoreo">52. Reporte Monitoreo</option>
+            <option value="53. Error de Tipificación">53. Error de Tipificación</option>
+            <option value="54. AVS">54. AVS</option>
+            <option value="55. Reportes Producción">55. Reportes Producción</option>
+            <option value="56. Agregar Soat Digital">56. Agregar Soat Digital</option>
+            <option value="57. Pagar Cita Virtual">57. Pagar Cita Virtual</option>
+            <option value="58. Firma Contrato ViaFirma">58. Firma Contrato ViaFirma</option>
+            <option value="59. Modulo de Pagos SEL">59. Modulo de Pagos SEL</option>
+            <option value="60. Autorizacion">60. Autorizacion</option>
+            <option value="61. Consulta">61. Consulta</option>
+            <option value="62. Descargar documento">62. Descargar documento</option>
+            <option value="63. Solicitud Evaluacion Medica">63. Solicitud Evaluacion Medica</option>
+            <option value="64. Estado radicado - AUS">64. Estado radicado - AUS</option>
+            <option value="65. Solicitud Autos">65. Solicitud Autos</option>
+            <option value="66. Incidente duplicado">66. Incidente duplicado</option>
+          </select>
+        </div>
+        <div class="campo"><label for="hu_raizal">HU Raizal / Mejora:</label><input type="text" id="hu_raizal"
+            placeholder="HU-XXXXX" /></div>
+        <div class="campo">
+          <label for="estado_raizal">Estado Raizal:</label>
+          <select id="estado_raizal" required>
+            <option value="">-- Seleccione --</option>
+            <option value="1. Identificada">1. Identificada</option>
+            <option value="2. En curso">2. En curso</option>
+            <option value="3. Por Identificar">3. Por Identificar</option>
+            <option value="4. Aislado">4. Aislado</option>
+            <option value="5. Finalizada">5. Finalizada</option>
+            <option value="6. N/A">6. N/A</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="responsable_solucion">Responsable Solución:</label>
+          <select id="responsable_solucion" required>
+            <option value="">-- Seleccione --</option>
+            <option value="1. TI">1. TI</option>
+            <option value="2. Negocio">2. Negocio</option>
+            <option value="3. TI/Negocio">3. TI/Negocio</option>
+          </select>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Solución y Diagnóstico</legend>
+        <div class="campo"><label for="diagnostico">Diagnóstico:</label><input type="text" id="diagnostico" /></div>
+        <div class="campo">
+          <label for="accion_ejecutada">Acción Ejecutada:</label>
+          <input type="text" id="accion_ejecutada" />
+        </div>
+        <div class="campo">
+          <label for="descripcion_solucion">Descripción de Solución:</label>
+          <textarea id="descripcion_solucion" style="height: 60px;"></textarea>
+        </div>
+
+
+        <div class="campo">
+          <label for="confirmacion_usuario">¿Confirmar operatividad del usuario afectado?:</label>
+          <select id="confirmacion_usuario">
+            <option value="Sí">Sí</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <div class="campo"><label for="formulario_credenciales">ID Formulario de Solicitud de Credenciales:</label><input
+            type="text" id="formulario_credenciales" /></div>
+        <div class="campo"><label for="oc_pam">OC Acceso a PAM - (PAM):</label><input type="text" id="oc_pam" /></div>
+        <div class="campo">
+          <label for="causa_raiz">Causa Raíz (Identificada / Sin Identificar):</label>
+          <select id="causa_raiz">
+            <option value="">-- Seleccione --</option>
+            <option value="Identificada">Identificada</option>
+            <option value="Sin Identificar">Sin Identificar</option>
+          </select>
+        </div>
+      </fieldset>
+      <div style="display: flex; gap: 10px;">
+        <button type="button" onclick="generarTexto()">Generar Texto</button>
+        <button type="button" onclick="limpiarCampos()">🧹 Limpiar</button>
+      </div>
+    </form>
+
+    <!-- RESULTADO -->
+    <div class="result-section">
+      <h2>📄 TEXTO GENERADO SOLUCIÓN INCIDENTE</h2>
+
+      <div class="campo" style="margin-bottom: 10px; display: flex; align-items: center;">
+        <label for="external_ticket">External Ticket:</label>
+        <input type="text" id="external_ticket" readonly
+          style="background-color:#eee; flex: 2; margin-right: 10px; min-width: 400px;">
+        <button type="button" onclick="copiarTicket()">📋</button>
+      </div>
+
+      <div id="resultado"></div>
+      <button onclick="copiarAlPortapapeles()">📋 Copiar al portapapeles</button>
+    </div>
+  </div>
+
+  <script src="plantilla-cierre.js"></script>
+
+  <div id="toast" class="toast"></div>
+</body>
+
+</html>
