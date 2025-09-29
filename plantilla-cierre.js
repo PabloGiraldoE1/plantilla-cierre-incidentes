@@ -299,6 +299,7 @@ function generarTexto() {
   const descripcion = getValue("descripcion_solucion");
   let texto = '';
   texto += `* Agrupador del Error: ${getValue("agrupador_error")}\n`;
+  texto += `* Causa del Error: ${getValue("causa_error")}\n`;
   texto += `* Proceso del Error: ${getValue("proceso_error")}\n`;
   texto += `* HU Raizal / Mejora: ${getValue("hu_raizal")}\n`;
   texto += `* Estado Raizal: ${getValue("estado_raizal")}\n`;
