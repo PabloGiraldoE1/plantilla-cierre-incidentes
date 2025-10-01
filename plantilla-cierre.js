@@ -60,7 +60,7 @@ const agrupadoresPorCategoria = {
     "Botones inactivos en flujo de solicitud ",
     "Falla en opciones de estado ",
     "Restricción de acceso por permisos ",
-    "Flujo detenido en proceso de solicitud ",
+    "Flujo detenido en proceso de solicitud",
     "Falla en integración con P8",
     "Póliza no localizada en sistema ",
     "Validación de estado de póliza ",
@@ -101,7 +101,7 @@ const agrupadoresPorCategoria = {
     "Error técnico en módulo Porchat"
   ],
   "INGRESO DIGITAL": [
-    "Flujo detenido en proceso de solicitud ",
+    "Flujo detenido en proceso de solicitud",
     "Gestión de rechazo de lote",
     "Bloqueo en carga de asegurabilidad",
     "Falla en integración con servicio de firma",
@@ -176,7 +176,7 @@ const opcionesAgrupador = [
   "Botones inactivos en flujo de solicitud ",
   "Falla en opciones de estado ",
   "Restricción de acceso por permisos ",
-  "Flujo detenido en proceso de solicitud ",
+  "Flujo detenido en proceso de solicitud",
   "Falla en integración con P8",
   "Póliza no localizada en sistema ",
   "Validación de estado de póliza ",
@@ -210,7 +210,7 @@ const opcionesAgrupador = [
   "Bloqueo en módulo Porchat",
   "Restricción de acceso por permisos",
   "Error técnico en módulo Porchat",
-  "Flujo detenido en proceso de solicitud ",
+  "Flujo detenido en proceso de solicitud",
   "Gestión de rechazo de lote",
   "Bloqueo en carga de asegurabilidad",
   "Falla en integración con servicio de firma",
@@ -396,3 +396,4 @@ document.getElementById("hu_raizal")?.addEventListener("input", function () {
     });
   }
 });
+
