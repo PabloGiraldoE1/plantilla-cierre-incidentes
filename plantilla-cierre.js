@@ -111,7 +111,7 @@ const agrupadoresPorCategoria = {
 
 // Función para mostrar agrupadores agrupados
 function mostrarAgrupadoresAgrupados() {
-  let html = '<div style="max-height:500px;overflow:auto;text-align:left;font-size:1rem">';
+  let html = '<div id="agrupadores-listado" style="max-height:500px;overflow:auto;text-align:left;font-size:1rem">';
   for (const categoria in agrupadoresPorCategoria) {
     html += `<strong>${categoria}</strong><ul style='margin-bottom:12px;'>`;
     agrupadoresPorCategoria[categoria].forEach(item => {
@@ -125,12 +125,27 @@ function mostrarAgrupadoresAgrupados() {
     html,
     width: 600,
     confirmButtonText: 'Cerrar',
-    scrollbarPadding: false
+    scrollbarPadding: false,
+    didOpen: () => {
+      const listado = document.getElementById('agrupadores-listado');
+      if (listado) {
+        listado.addEventListener('copy', function(e) {
+          e.preventDefault();
+          mostrarToast('No está permitido copiar el contenido del listado de agrupadores.');
+        });
+      }
+    }
   });
 }
 
 // Evento para el botón ver agrupadores
-document.getElementById("ver_agrupadores")?.addEventListener("click", mostrarAgrupadoresAgrupados);
+const btnVerAgrupadores = document.getElementById("ver_agrupadores");
+btnVerAgrupadores?.addEventListener("click", mostrarAgrupadoresAgrupados);
+// Bloquear copiar en el botón de buscar agrupadores
+btnVerAgrupadores?.addEventListener("copy", function(e) {
+  e.preventDefault();
+  mostrarToast("No está permitido copiar el contenido de este botón.");
+});
 const opcionesAgrupador = [
   "Reportes Dynatrace Cotizador",
   "Reportes Dynatrace AUS",
@@ -220,6 +235,11 @@ const opcionesAgrupador = [
 // Autocompletado para agrupador_error
 const inputAgrupador = document.getElementById("agrupador_error");
 const listaSugerencias = document.getElementById("autocomplete");
+// Bloquear copiar en el campo Agrupador del Error
+inputAgrupador.addEventListener("copy", function (e) {
+  e.preventDefault();
+  mostrarToast("No está permitido copiar el contenido de Agrupador del Error.");
+});
 
 inputAgrupador.addEventListener("input", function () {
   const valor = this.value.toLowerCase();
@@ -323,12 +343,13 @@ function actualizarExternalTicket() {
   const agrupador = getValue("agrupador_error");
   // Solo usar agrupador si es válido
   const agrupadorValido = opcionesAgrupador.includes(agrupador) ? agrupador : "";
-  const externo = [
-    aplicativo ? aplicativo + "." : "",
-    proceso ? proceso + " " : "",
-    agrupadorValido
-  ].join("").trim();
-  document.getElementById("external_ticket").value = externo;
+  // Solo mostrar si los tres campos están diligenciados y el agrupador es válido
+  if (aplicativo && proceso && agrupadorValido) {
+    const externo = `${aplicativo}.${proceso} ${agrupadorValido}`.trim();
+    document.getElementById("external_ticket").value = externo;
+  } else {
+    document.getElementById("external_ticket").value = "";
+  }
 }
 
 // Copiar texto generado al portapapeles
@@ -396,5 +417,4 @@ document.getElementById("hu_raizal")?.addEventListener("input", function () {
     });
   }
 });
-
 
