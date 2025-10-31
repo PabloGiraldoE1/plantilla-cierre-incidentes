@@ -45,7 +45,8 @@ const agrupadoresPorCategoria = {
     "Faltan campos en la cotizacion",
     "Error en encuesta de asegurabilidad ",
     "Validacion de Sarlaft",
-    "Error en modificación de póliza"
+    "Error en modificación de póliza",
+    "Procesos y tareas DMS"
   ],
   "AUS": [
     "Aplicativo no carga / Lentitud / Intermitencia",
@@ -181,6 +182,7 @@ const opcionesAgrupador = [
   "Error en encuesta de asegurabilidad ",
   "Validacion de Sarlaft",
   "Error en modificación de póliza",
+  "Procesos y tareas DMS",
   "Falla en visualización de radicados",
   "Error interno en servicios críticos",
   "Restricción funcional por tipo de póliza",
@@ -417,4 +419,5 @@ document.getElementById("hu_raizal")?.addEventListener("input", function () {
     });
   }
 });
+
 
