@@ -67,7 +67,8 @@ const agrupadoresPorCategoria = {
     "Validación de estado de póliza ",
     "Falla en generación de certificados",
     "Falla en carga de estado de póliza",
-    "Falla en categorización de póliza"
+    "Falla en categorización de póliza",
+    "Error en datos del asegurado"
   ],
   "AVA": [
     "Restricción en visualización de póliza",
@@ -84,7 +85,8 @@ const agrupadoresPorCategoria = {
     "Alertamiento técnico en monitoreo",
     "Gestión de traslado entre asesores",
     "Error en datos del asegurado",
-    "Falla en generación de certificados"
+    "Falla en generación de certificados",
+    "Error en Hoja de Estado"
   ],
   "PORCHAT": [
     "Retraso en visualización de documentos",
@@ -187,6 +189,7 @@ const opcionesAgrupador = [
   "Error interno en servicios críticos",
   "Restricción funcional por tipo de póliza",
   "Error general de aplicación",
+  "Error en Hoja de Estado",
   "Duplicidad en radicados",
   "Interfaz sin respuesta",
   "Falla en autenticación o acceso",
@@ -419,5 +422,6 @@ document.getElementById("hu_raizal")?.addEventListener("input", function () {
     });
   }
 });
+
 
 
