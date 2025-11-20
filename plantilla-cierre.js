@@ -4,7 +4,8 @@ const agrupadoresPorCategoria = {
   "ALERTAMIENTO": [
     "Reportes Dynatrace Cotizador",
     "Reportes Dynatrace AUS",
-    "Reportes Dynatrace AVA"
+    "Reportes Dynatrace AVA",
+    "Reportes Dynatrace SimonNet"
   ],
   "SIMONNET": [
     "Aplicativo no carga / Lentitud / Intermitencia",
@@ -153,6 +154,7 @@ const opcionesAgrupador = [
   "Reportes Dynatrace Cotizador",
   "Reportes Dynatrace AUS",
   "Reportes Dynatrace AVA",
+  "Reportes Dynatrace SimonNet",
   "Aplicativo no carga / Lentitud / Intermitencia",
   "Capacitacion Aplicativo",
   "Solicitud no registra datos",
@@ -422,6 +424,7 @@ document.getElementById("hu_raizal")?.addEventListener("input", function () {
     });
   }
 });
+
 
 
 
