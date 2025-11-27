@@ -44,7 +44,7 @@ const agrupadoresPorCategoria = {
     "Intermitencia en Servicios del Cotizador",
     "Registro de asegurados/beneficiarios no procesado",
     "Faltan campos en la cotizacion",
-    "Error en encuesta de asegurabilidad ",
+    "Error en encuesta de asegurabilidad",
     "Validacion de Sarlaft",
     "Error en modificación de póliza",
     "Procesos y tareas DMS"
@@ -183,7 +183,7 @@ const opcionesAgrupador = [
   "Intermitencia en Servicios del Cotizador",
   "Registro de asegurados/beneficiarios no procesado",
   "Faltan campos en la cotizacion",
-  "Error en encuesta de asegurabilidad ",
+  "Error en encuesta de asegurabilidad",
   "Validacion de Sarlaft",
   "Error en modificación de póliza",
   "Procesos y tareas DMS",
@@ -424,6 +424,7 @@ document.getElementById("hu_raizal")?.addEventListener("input", function () {
     });
   }
 });
+
 
 
 
